@@ -65,7 +65,10 @@ setup_wizard_stages = "erpnext.setup.setup_wizard.setup_wizard.get_setup_stages"
 setup_wizard_complete = "erpnext.setup.setup_wizard.setup_wizard.setup_demo"
 setup_wizard_test = "erpnext.setup.setup_wizard.test_setup_wizard.run_setup_wizard_test"
 
-after_install = "erpnext.setup.install.after_install"
+after_install = [
+	"erpnext.setup.install.after_install",
+	"erpnext.erpnext_integrations.woocommerce_custom_fields.setup_custom_fields",
+]
 
 boot_session = "erpnext.startup.boot.boot_session"
 notification_config = "erpnext.startup.notifications.get_notification_config"
@@ -344,8 +347,17 @@ doc_events = {
 		"validate": "erpnext.accounts.doctype.accounting_period.accounting_period.validate_accounting_period_on_doc_save",
 	},
 	"Stock Entry": {
-		"on_submit": "erpnext.stock.doctype.material_request.material_request.update_completed_and_requested_qty",
+		"on_submit": [
+			"erpnext.stock.doctype.material_request.material_request.update_completed_and_requested_qty",
+			"erpnext.erpnext_integrations.doctype.woocommerce_settings.stock_sync.on_stock_update_push_to_wc",
+		],
 		"on_cancel": "erpnext.stock.doctype.material_request.material_request.update_completed_and_requested_qty",
+	},
+	"Stock Reconciliation": {
+		"on_submit": "erpnext.erpnext_integrations.doctype.woocommerce_settings.stock_sync.on_stock_update_push_to_wc",
+	},
+	"POS Invoice": {
+		"on_submit": "erpnext.erpnext_integrations.doctype.woocommerce_settings.stock_sync.on_stock_update_push_to_wc",
 	},
 	"User": {
 		"after_insert": "frappe.contacts.doctype.contact.contact.update_contact",
@@ -437,6 +449,7 @@ scheduler_events = {
 	"hourly_maintenance": [
 		"erpnext.stock.doctype.repost_item_valuation.repost_item_valuation.repost_entries",
 		"erpnext.utilities.bulk_transaction.retry",
+		"erpnext.erpnext_integrations.doctype.woocommerce_settings.woocommerce_settings.scheduled_sync",
 		"erpnext.projects.doctype.project.project.collect_project_status",
 		"erpnext.projects.doctype.project.project.project_status_update_reminder",
 		"erpnext.erpnext_integrations.doctype.plaid_settings.plaid_settings.automatic_synchronization",

@@ -1,0 +1,308 @@
+{
+ "actions": [],
+ "creation": "2026-02-16 00:00:00.000000",
+ "doctype": "DocType",
+ "editable_grid": 1,
+ "engine": "InnoDB",
+ "field_order": [
+  "enabled",
+  "column_break_conn",
+  "woocommerce_url",
+  "section_break_auth",
+  "consumer_key",
+  "consumer_secret",
+  "column_break_auth",
+  "webhook_secret",
+  "verify_ssl",
+  "section_break_sync",
+  "sync_products",
+  "sync_orders",
+  "sync_stock",
+  "column_break_sync",
+  "product_sync_direction",
+  "stock_sync_direction",
+  "order_status_filter",
+  "section_break_defaults",
+  "company",
+  "warehouse",
+  "column_break_defaults",
+  "price_list",
+  "default_customer_group",
+  "default_item_group",
+  "section_break_tax",
+  "tax_account",
+  "column_break_tax",
+  "shipping_account",
+  "section_break_pos",
+  "enable_pos",
+  "pos_profile",
+  "column_break_pos",
+  "pos_warehouse",
+  "section_break_schedule",
+  "sync_frequency",
+  "last_sync_datetime",
+  "column_break_schedule",
+  "last_product_sync",
+  "last_order_sync"
+ ],
+ "fields": [
+  {
+   "default": "0",
+   "fieldname": "enabled",
+   "fieldtype": "Check",
+   "label": "Enabled"
+  },
+  {
+   "fieldname": "column_break_conn",
+   "fieldtype": "Column Break"
+  },
+  {
+   "depends_on": "enabled",
+   "fieldname": "woocommerce_url",
+   "fieldtype": "Data",
+   "label": "WooCommerce Store URL",
+   "reqd": 1,
+   "description": "e.g. https://yourstore.com"
+  },
+  {
+   "depends_on": "enabled",
+   "fieldname": "section_break_auth",
+   "fieldtype": "Section Break",
+   "label": "API Authentication"
+  },
+  {
+   "fieldname": "consumer_key",
+   "fieldtype": "Data",
+   "label": "Consumer Key",
+   "reqd": 1
+  },
+  {
+   "fieldname": "consumer_secret",
+   "fieldtype": "Password",
+   "label": "Consumer Secret",
+   "reqd": 1
+  },
+  {
+   "fieldname": "column_break_auth",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "webhook_secret",
+   "fieldtype": "Password",
+   "label": "Webhook Secret",
+   "description": "Used to verify incoming webhook requests from WooCommerce"
+  },
+  {
+   "default": "1",
+   "fieldname": "verify_ssl",
+   "fieldtype": "Check",
+   "label": "Verify SSL"
+  },
+  {
+   "depends_on": "enabled",
+   "fieldname": "section_break_sync",
+   "fieldtype": "Section Break",
+   "label": "Sync Configuration"
+  },
+  {
+   "default": "1",
+   "fieldname": "sync_products",
+   "fieldtype": "Check",
+   "label": "Sync Products"
+  },
+  {
+   "default": "1",
+   "fieldname": "sync_orders",
+   "fieldtype": "Check",
+   "label": "Sync Orders"
+  },
+  {
+   "default": "1",
+   "fieldname": "sync_stock",
+   "fieldtype": "Check",
+   "label": "Sync Stock"
+  },
+  {
+   "fieldname": "column_break_sync",
+   "fieldtype": "Column Break"
+  },
+  {
+   "default": "ERPNext to WooCommerce",
+   "fieldname": "product_sync_direction",
+   "fieldtype": "Select",
+   "label": "Product Sync Direction",
+   "options": "ERPNext to WooCommerce\nWooCommerce to ERPNext\nBidirectional"
+  },
+  {
+   "default": "ERPNext to WooCommerce",
+   "fieldname": "stock_sync_direction",
+   "fieldtype": "Select",
+   "label": "Stock Sync Direction",
+   "options": "ERPNext to WooCommerce\nWooCommerce to ERPNext\nBidirectional"
+  },
+  {
+   "default": "processing",
+   "fieldname": "order_status_filter",
+   "fieldtype": "Data",
+   "label": "Order Status Filter",
+   "description": "Comma-separated WooCommerce order statuses to sync, e.g. processing,completed"
+  },
+  {
+   "depends_on": "enabled",
+   "fieldname": "section_break_defaults",
+   "fieldtype": "Section Break",
+   "label": "ERPNext Defaults"
+  },
+  {
+   "fieldname": "company",
+   "fieldtype": "Link",
+   "label": "Company",
+   "options": "Company",
+   "reqd": 1
+  },
+  {
+   "fieldname": "warehouse",
+   "fieldtype": "Link",
+   "label": "Warehouse",
+   "options": "Warehouse",
+   "reqd": 1
+  },
+  {
+   "fieldname": "column_break_defaults",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "price_list",
+   "fieldtype": "Link",
+   "label": "Price List",
+   "options": "Price List",
+   "reqd": 1
+  },
+  {
+   "fieldname": "default_customer_group",
+   "fieldtype": "Link",
+   "label": "Default Customer Group",
+   "options": "Customer Group"
+  },
+  {
+   "fieldname": "default_item_group",
+   "fieldtype": "Link",
+   "label": "Default Item Group",
+   "options": "Item Group"
+  },
+  {
+   "depends_on": "enabled",
+   "fieldname": "section_break_tax",
+   "fieldtype": "Section Break",
+   "label": "Accounts"
+  },
+  {
+   "fieldname": "tax_account",
+   "fieldtype": "Link",
+   "label": "Tax Account",
+   "options": "Account",
+   "description": "Account to book WooCommerce taxes against"
+  },
+  {
+   "fieldname": "column_break_tax",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "shipping_account",
+   "fieldtype": "Link",
+   "label": "Shipping Account",
+   "options": "Account",
+   "description": "Account to book WooCommerce shipping charges"
+  },
+  {
+   "depends_on": "enabled",
+   "fieldname": "section_break_pos",
+   "fieldtype": "Section Break",
+   "label": "POS Integration"
+  },
+  {
+   "default": "0",
+   "fieldname": "enable_pos",
+   "fieldtype": "Check",
+   "label": "Enable POS Integration",
+   "description": "Link WooCommerce stock with ERPNext POS"
+  },
+  {
+   "depends_on": "enable_pos",
+   "fieldname": "pos_profile",
+   "fieldtype": "Link",
+   "label": "POS Profile",
+   "options": "POS Profile"
+  },
+  {
+   "fieldname": "column_break_pos",
+   "fieldtype": "Column Break"
+  },
+  {
+   "depends_on": "enable_pos",
+   "fieldname": "pos_warehouse",
+   "fieldtype": "Link",
+   "label": "POS Warehouse",
+   "options": "Warehouse",
+   "description": "Warehouse used for POS transactions. Leave blank to use default Warehouse."
+  },
+  {
+   "depends_on": "enabled",
+   "fieldname": "section_break_schedule",
+   "fieldtype": "Section Break",
+   "label": "Sync Schedule"
+  },
+  {
+   "default": "Every 30 minutes",
+   "fieldname": "sync_frequency",
+   "fieldtype": "Select",
+   "label": "Sync Frequency",
+   "options": "Every 15 minutes\nEvery 30 minutes\nHourly\nDaily"
+  },
+  {
+   "fieldname": "last_sync_datetime",
+   "fieldtype": "Datetime",
+   "label": "Last Sync",
+   "read_only": 1
+  },
+  {
+   "fieldname": "column_break_schedule",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "last_product_sync",
+   "fieldtype": "Datetime",
+   "label": "Last Product Sync",
+   "read_only": 1
+  },
+  {
+   "fieldname": "last_order_sync",
+   "fieldtype": "Datetime",
+   "label": "Last Order Sync",
+   "read_only": 1
+  }
+ ],
+ "issingle": 1,
+ "links": [],
+ "modified": "2026-02-16 00:00:00.000000",
+ "modified_by": "Administrator",
+ "module": "ERPNext Integrations",
+ "name": "WooCommerce Settings",
+ "owner": "Administrator",
+ "permissions": [
+  {
+   "create": 1,
+   "delete": 1,
+   "email": 1,
+   "print": 1,
+   "read": 1,
+   "role": "System Manager",
+   "share": 1,
+   "write": 1
+  }
+ ],
+ "sort_field": "creation",
+ "sort_order": "DESC",
+ "states": [],
+ "track_changes": 1
+}

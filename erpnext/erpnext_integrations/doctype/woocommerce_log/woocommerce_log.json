@@ -1,0 +1,133 @@
+{
+ "actions": [],
+ "autoname": "WC-LOG-.#####",
+ "creation": "2026-02-16 00:00:00.000000",
+ "doctype": "DocType",
+ "engine": "InnoDB",
+ "field_order": [
+  "title",
+  "status",
+  "method",
+  "column_break_1",
+  "reference_doctype",
+  "reference_name",
+  "woocommerce_id",
+  "section_break_details",
+  "request_data",
+  "column_break_details",
+  "response_data",
+  "section_break_error",
+  "error",
+  "traceback"
+ ],
+ "fields": [
+  {
+   "fieldname": "title",
+   "fieldtype": "Data",
+   "label": "Title",
+   "read_only": 1
+  },
+  {
+   "fieldname": "status",
+   "fieldtype": "Select",
+   "label": "Status",
+   "options": "Success\nFailed\nQueued",
+   "default": "Queued",
+   "read_only": 1,
+   "in_list_view": 1
+  },
+  {
+   "fieldname": "method",
+   "fieldtype": "Data",
+   "label": "Method",
+   "read_only": 1,
+   "in_list_view": 1,
+   "in_standard_filter": 1
+  },
+  {
+   "fieldname": "column_break_1",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "reference_doctype",
+   "fieldtype": "Link",
+   "label": "Reference DocType",
+   "options": "DocType",
+   "read_only": 1
+  },
+  {
+   "fieldname": "reference_name",
+   "fieldtype": "Dynamic Link",
+   "label": "Reference Name",
+   "options": "reference_doctype",
+   "read_only": 1,
+   "in_list_view": 1
+  },
+  {
+   "fieldname": "woocommerce_id",
+   "fieldtype": "Data",
+   "label": "WooCommerce ID",
+   "read_only": 1
+  },
+  {
+   "fieldname": "section_break_details",
+   "fieldtype": "Section Break",
+   "label": "Request / Response",
+   "collapsible": 1
+  },
+  {
+   "fieldname": "request_data",
+   "fieldtype": "Code",
+   "label": "Request Data",
+   "options": "JSON",
+   "read_only": 1
+  },
+  {
+   "fieldname": "column_break_details",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "response_data",
+   "fieldtype": "Code",
+   "label": "Response Data",
+   "options": "JSON",
+   "read_only": 1
+  },
+  {
+   "fieldname": "section_break_error",
+   "fieldtype": "Section Break",
+   "label": "Error",
+   "collapsible": 1
+  },
+  {
+   "fieldname": "error",
+   "fieldtype": "Code",
+   "label": "Error",
+   "read_only": 1
+  },
+  {
+   "fieldname": "traceback",
+   "fieldtype": "Code",
+   "label": "Traceback",
+   "read_only": 1
+  }
+ ],
+ "index_web_pages_for_search": 0,
+ "links": [],
+ "modified": "2026-02-16 00:00:00.000000",
+ "modified_by": "Administrator",
+ "module": "ERPNext Integrations",
+ "name": "WooCommerce Log",
+ "naming_rule": "Expression",
+ "owner": "Administrator",
+ "permissions": [
+  {
+   "read": 1,
+   "role": "System Manager"
+  }
+ ],
+ "sort_field": "creation",
+ "sort_order": "DESC",
+ "states": [],
+ "track_changes": 0
+}
